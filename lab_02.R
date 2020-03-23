@@ -36,5 +36,35 @@ m3
 
 # 문제4
 
-rownames(m3) <- c("row1","row2","row3")
-colnames(m3) <- c("col1","col2","col3")
+m4 <- m3
+rownames(m4) <- c("row1","row2","row3")
+colnames(m4) <- c("col1","col2","col3")
+m4
+
+# 문제5 : 내가 원했던 모양이 안 나오는데 뭐지
+
+(alpha <- letters[1:6])
+
+matrix(alpha, nrow=2, ncol=3)
+
+
+alpha2 <- rbind(alpha, c("x","y","z"))
+alpha2
+
+alpha3 <- cbind(alpha, c("s","p"))
+alpha3
+
+# 문제6
+
+a <- array(1:24, dim=c(2,3,4))
+a
+
+a[2,,]
+a[,1,]
+a[,,3]
+a+100
+a[,,4]*100
+a[,-1,]
+a[2,,2]+100
+a[,,1]-2
+a*10

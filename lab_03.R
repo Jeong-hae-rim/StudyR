@@ -19,6 +19,8 @@ df2 <- matrix(1:10, nrow=5, ncol=2)
 df2 <- cbind(df2[,1], letters[1:5], df2[,2])
 colnames(df2) <- c("col1", "col2","col3")
 
+# df2 <- data.frame(col1=1:5, col2=letters[1:5], col3=6:10) -> 이런 방식도 있음
+
 # 문제4
 
 제품명 <- c("사과","딸기","수박")
@@ -74,6 +76,7 @@ emp[emp$job=='SALESMAN',c("ename","job","sal")]
 # 문제12
 
 emp[emp$sal >= 1000 & emp$sal <= 3000, c("ename", "sal", "deptno")]
+# 연산자 &를 하나만 줘야 행마다 계산이 일어난다.
 
 # 문제13
 
@@ -82,6 +85,7 @@ emp [!emp$job=='ANALYST', c("ename", "job", "sal")]
 # 문제14
 
 emp [emp$job=='SALESMAN'|emp$job=='ANALYST', c("ename", "job")]
+# 연산자 |를 하나만 줘야 행마다 계산이 일어난다.
 
 # 문제15
 
@@ -90,3 +94,7 @@ emp[is.na(emp$comm), c("ename","sal")]
 # 문제16
 
 emp[order(emp$sal, decreasing = F),]
+#추가 API를 설치해서 더 쉽게 소팅할 수 있음
+
+sort(emp$sal) #월급을 적게 받는 순으로 출력할 뿐 누가 해당 월급을 받는지는 알 수 없음
+order(emp$sal) #각 직원들이 받는 월급을 index로 추출해줌

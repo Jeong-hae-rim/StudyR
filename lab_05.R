@@ -30,15 +30,20 @@ count <- sample(3:10,1)
 deco <- sample(1:3,1)
 if(deco==1){
  deco <- '*'
+ for(count in 1:count){
+   cat(deco)
+ }
 } else if (deco==2) {
   deco <- '$'
+  for(count in 1:count){
+    cat(deco)
+  }
 } else {
   deco <- '#'
+  for(count in 1:count){
+    cat(deco)
+  }
 }
-for(count in 1:count){
-  cat(deco)
-}
-
 
 # 문제4
 
@@ -54,5 +59,5 @@ cat(score,"점은 ",result,"입니다\n",sep="")
 
 # 문제5
 
-alpha <- paste0(c(LETTERS[1:26]), c(letters[1:26]))
+alpha <- paste0(LETTERS[1:26], letters[1:26])
 

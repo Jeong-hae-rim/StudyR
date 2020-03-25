@@ -26,20 +26,20 @@ countEvenOdd(1)
 # 문제2
 
 vmSum <- function(x){
-  if(is.vector(x)){
+  if(is.vector(x) && !is.list(x)){
     if(is.numeric(x)){
       sum <- 0
       for(i in 1:length(x)){
-        sum <- sum + x[i]
+        result <- sum + x[i]
       }
-      return(sum)
     }else{
       print("숫자벡터를 전달하숑!")
-      print(0)
+      result <- 0
     }
   }else{
-    print("벡터만 전달하숑!")
+    result <- "벡터만 전달하숑!"
   }
+  return(result)
 }
 vmSum(1:10);vmSum('가나다');vmSum(list)
 
@@ -50,15 +50,16 @@ vmSum2 <- function(x){
     if(is.numeric(x)){
       sum <- 0
       for(i in 1:x){
-        sum <- sum + i
+        result <- sum + i
       }
-      return(sum)
     }else{
       warning("숫자 벡터를 전달하숑!")
+      result <- 0
     }
   }else{
     stop("벡터만 전달하숑!")
   }
+  return(result)
 }
 vmSum2(10);vmSum2('가나다');vmSum2(list)
 
@@ -72,13 +73,11 @@ mySum <- function(x){
   if(is.vector(x)){
     oddSum <- 0
     evenSum <- 0
+    minValue <- min(x,na.rm=T)
     if(any(is.na(x))){ 
       warning("NA를 최저값으로 변경하여 처리함!!")
-      x <- replace(x, is.na(x), min(x,na.rm=T))
+      x <- replace(x, is.na(x), values = minValue)
       }
-  }else{
-     stop("벡터만 처리 가능!")
-  } 
     for(i in 1:length(x)){
         if(i%%2 == 0){
           evenSum <- evenSum + x[i]
@@ -88,6 +87,9 @@ mySum <- function(x){
       }
       result <- list(evenSum=evenSum, oddSum=oddSum)
       return(result)
+  }else{
+    stop("벡터만 처리 가능!")
+  } 
 }
 
 mySum(c(10,NA,2,4,5,4))

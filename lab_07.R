@@ -78,7 +78,7 @@ mySum <- function(x){
       warning("NA를 최저값으로 변경하여 처리함!!")
       x <- replace(x, is.na(x), values = minValue)
       }
-    for(i in 1:length(x)){
+      for(i in 1:length(x)){
         if(i%%2 == 0){
           evenSum <- evenSum + x[i]
         }else{

@@ -3,17 +3,25 @@
 # 문제1
 
 countEvenOdd <- function(x){
-  result <- list(
-    even = x%%2 != 1, 
-    odd = x%%2 == 1
-    )
+  odd <- 0
+  even <- 0
   if(is.numeric(x)){
-    return(result)
+    for(i in 1:x){
+      if(x%%2 == 0){
+        even = even+x
+      }else{
+        odd = odd+x
+      }
+    }
   }else{
     return()
   }
+  result <- list(even=even, odd=odd)
+  return(result)
 }
 countEvenOdd(1)
+
+
 
 # 문제2
 

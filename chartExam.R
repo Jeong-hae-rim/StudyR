@@ -29,6 +29,5 @@ clock <- table(graph2)
 
 png("clicklog2.png", 700, 400)
 
-pie(clock, main = "파이그래프 실습", col=rainbow(20))
-
+pie(clock, main = "파이그래프 실습", labels=paste(as.numeric(names(clock)),"~",as.numeric(names(clock))+1), col=rainbow(20))
 dev.off()

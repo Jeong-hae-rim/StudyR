@@ -27,7 +27,10 @@ graph2 <- graph2[,-2]
 graph2 <- substr(graph2, 9, 10)
 clock <- table(graph2)
 
+clock_lev <- as.numeric(names(clock)) 
+# clock 내 데이터는 진짜 숫자가 아니라 String이므로 as.numeric()을 통해 숫자로 변형해줘야 한다.
+
 png("clicklog2.png", 700, 400)
 
-pie(clock, main = "파이그래프 실습", labels=paste(as.numeric(names(clock)),"~",as.numeric(names(clock))+1), col=rainbow(20))
+pie(clock, main = "파이그래프 실습", labels=paste(clock_lev,"~",clock_lev+1), col=rainbow(20))
 dev.off()

@@ -47,6 +47,10 @@ as.POSIXlt(datetime$v1, format="%m/%d/%Y %H:%M:%S",origin="1970-01-01")
 as.POSIXlt(datetime$v2, format="%m/%d/%Y %H:%M:%S",origin="1970-01-01")
 as.POSIXlt(datetime$v3, format="%m/%d/%Y %H:%M:%S",origin="1970-01-01")
 
+#데이타 프레임을 그대로 주면 일 안 함. 
+
+
+
 #문제 5 - 2020년 6월 1일부터 7일간의 월, 일, 요일을 seq() 함수를 이용하여 생성하고 
 #다음과 같은 형식으로 출력한다. 
 
@@ -68,7 +72,7 @@ paste0(what2,"-",what1)
 
 v1 <- c('Happy','birth','to','you')
 
-sum(nchar(v1))+length(v1)
+sum(nchar(v1))+length(v1) 
 
 
 #문제 7 - 6번 문제에서 생성한 텍스트 벡터 v1의 개별 원소들을 연결하여 다음과 같은 텍스트 벡터를 생성한다. 연결된 새로운 텍스트 벡터의 길이와 문자 개수의 합을 계산한다.
@@ -76,6 +80,7 @@ sum(nchar(v1))+length(v1)
 #"Happy Birthday to You"
 
 v2 <- c("Happy Birthday to You")
+# v2 <- paste(v1, collapse="")
 
 nchar(v2) + length(v2)
 
@@ -96,6 +101,10 @@ alpha2 <- paste(LETTERS[1:10], 1:10, sep="")
 text1 <- c('good','morning')
 strsplit(text1, " ")
 
+#text1 <- 'Good Morning'
+#text1 <- c(unlist(strsplit(text1, "")))
+#list(text1[1],text[2])
+
 #문제 10 -  다음 텍스트 벡터를 단어 단위로 분할한다. 단, 모든 쉼표(,)와 하이픈(-)을 제거한다.
 
 text2 <- c("Yesterday is history, tommrrow is a mystery, today is a gift!", 
@@ -105,6 +114,8 @@ text2 <- gsub("–", "", text2)
 text2 <- gsub(",", "", text2)
 
 strsplit(x= text2, split= " ")
+text2 <- unlist(strsplit(text2, split = "\\s+"))
+
 
 #문제 11 -  다음 주민등록번호 세 개를 ssn 변수에 저장하고, 
 #뒤 일곱 자리의 숫자를 '*******'으로 대체한다.
@@ -115,6 +126,7 @@ ssn <- c("941215-1234567", "850605-2345678", "760830-1357913")
 ssn2 <- gsub("[[:digit:]]", "*", substr(ssn, nchar(ssn)-6, nchar(ssn)))
 
 ssn1 <- substr(ssn, 1, 7)
+
 
 paste0(ssn1,ssn2)
 
